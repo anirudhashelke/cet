@@ -1,0 +1,67 @@
+@media screen and (max-width:768px)  {
+    .a-headertop{
+        font-size: 12px !important;
+    }
+    .a-headergaps{
+        margin-top: 10px !important;
+    }
+    .a-state img{
+        width: 50px !important;
+    }
+    .a-state h5{
+        font-size: 13px !important;
+    }
+    .a-states img{
+        width:30px !important;
+    }
+    .a-headertext{
+        font-size: 15px !important;
+    }
+    /* header end */
+    .a-headercol{
+      padding:8px!important;  
+    }
+    .a-headerendul{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .a-headera{
+        font-size: 10px !important;
+    }
+    .a-headerbtn{
+        font-size: 8px !important;
+        padding:2px !important;
+    } 
+    .a-headerbtn img{
+        width: 20px !important;
+    }
+    /* banner */
+    .a-banner{
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .a-banners{
+        width: 50px !important;
+        height: 35px !important;
+    }
+    .a-bannert {
+       width: 30px !important;
+       height: 30px !important;
+    }
+    .a-bannergap {
+        gap:5px !important;
+    }
+    .a-iconss{
+        font-size: 10px !important;
+    }
+    .a-imgs{
+        padding: 0 !important;
+        width: 30%;
+    } 
+    .a-bannerbox{
+        font-size: 8px !important;
+        line-height: 15px !important;
+    }
+    
+    
+}

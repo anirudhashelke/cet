@@ -1,0 +1,16 @@
+/* .demo{
+    align-items: center;
+    border: 1px solid black;
+} */
+.a-headerendli:first-child a{
+    color: #EEC641 !important;
+}
+.a-headera:hover{
+color: #EEC641 !important;
+
+}
+.a-bannerbox{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
