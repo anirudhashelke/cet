@@ -336,8 +336,8 @@ mainNOticeContainerMarquee.innerHTML = "Imp Notice: Dates have been Extended for
 mainNOticeContainerMarquee.style.background = "#f1f1f1"
 mainNOticeContainerMarquee.className = "  m-0 p-0 ms-2 "
 mainNOticeContainerMarquee.behavior = ""
-// mainNOticeContainerMarquee.onmouseover=this.stop();
-// mainNOticeContainerMarquee.onmouseout=this.start()
+// `mainNOticeContainerMarquee.onmouseover=this.stop()`
+// `mainNOticeContainerMarquee.onmouseout=this.start()`
 mainNOticeContainerMarquee.direction = ""
 mainNOticeContainerMarquee.style.lineHeight = "2.3"
 mainNOticeContainer.appendChild(mainNOticeContainerMarquee)
@@ -484,7 +484,8 @@ counts.forEach(function (counter) {
         if (oldValue < finalValue) {
             counter.innerText = Math.ceil(incrementValue + oldValue).toLocaleString()
             setTimeout(updateCounter, 1)
-        } else {
+        } 
+        else {
             counter.innerText = `${finalValue > 1000 ? `${finalValue.toLocaleString()}+` : finalValue}`
         }
     }
@@ -492,6 +493,134 @@ counts.forEach(function (counter) {
     updateCounter()
 
 })
+
+// about cet section
+const about=document.createElement("section")
+about.style.background="url(../img/teams.jpg)"
+about.style.backgroundSize="cover"
+about.style.backgroundRepeat="no-repeat"
+about.style.backgroundPosition="50% 50%"
+about.style.width="100%"
+about.style.height="100vh"
+about.style.backgroundAttachment="fixed"
+
+
+// creaet aboutdiv
+const aboutDiv=document.createElement("div")
+aboutDiv.className=" h-100"
+aboutDiv.style.background="#ffffffba"
+about.appendChild(aboutDiv)
+
+// create aboutcontainer
+const aboutContaine = document.createElement("div")
+aboutContaine.className="container  pt-5 pb-5"
+aboutDiv.appendChild(aboutContaine)
+// creaet row
+const aboutRow=document.createElement("div")
+aboutRow.className="row mt-2"
+aboutContaine.appendChild(aboutRow)
+
+// cerate about colleft
+var aboutCol=document.createElement("div")
+aboutCol.className="col-12 col-md-5  py-3 "
+
+// creaet imgtag
+const aboutImg=document.createElement("img")
+aboutImg.src="../img/A.png"
+aboutImg.alt=""
+aboutImg.style.width="100%"
+aboutImg.style.height="242px"
+aboutImg.style.boxShadow="-12px 14px 0px 0px #163269"
+aboutImg.style.objectFit="fill"
+aboutCol.appendChild(aboutImg)
+aboutRow.appendChild(aboutCol)
+
+// cerate about colright
+var aboutCol=document.createElement("div")
+aboutCol.className="col-12 col-md-7  "
+
+// creaet h1
+const aboutH1=document.createElement("h1")
+aboutH1.innerText="About CET Cell"
+aboutH1.className="pb-3"
+aboutH1.style.color="#163269"
+aboutH1.style.fontSize="32px"
+aboutCol.appendChild(aboutH1)
+
+// creaet ptag
+var aboutPtag=document.createElement("p")
+aboutPtag.style.fontSize="15px"
+aboutPtag.style.color=" #333333"
+aboutPtag.innerText="The Government of Maharashtra has established State Common Entrance Test Cell as per Section 10 of the Maharashtra Unaided Private Professional Educational Institutions (Regulation of Admissions and Fees) Act ,2015. The CET Cell conducts various entrance exams for Admission to Professional courses in the state of Maharashtra, India."
+aboutCol.appendChild(aboutPtag)
+
+// creaet ptag
+var aboutPtag=document.createElement("p")
+aboutPtag.style.fontSize="15px"
+aboutPtag.style.color=" #333333"
+aboutPtag.innerText="Its primary purpose is to facilitate the admission process for Professional courses such as Engineering, Management, Pharmacy, Agriculture, law, Medical, AYUSH & Fine Arts ."
+aboutCol.appendChild(aboutPtag)
+aboutRow.appendChild(aboutCol)
+
+// ceraet abouttable
+const aboutTavleBox=document.createElement("div")
+aboutTavleBox.style.background="#E7E7E7"
+aboutTavleBox.style.height="400px"
+// aboutTavleBox.style.opacity="0.87"
+aboutDiv.appendChild(aboutTavleBox)
+
+// create table container
+const aboutTeble=document.createElement("div")
+aboutTeble.className="container  py-3"
+
+
+// create abouttable row
+const aboutTebleRow=document.createElement("div")
+aboutTebleRow.className="row "
+
+// create aboutablecol
+const aboutTebleCol=document.createElement("div")
+aboutTebleCol.className="col-12 col-md-11 m-auto "
+aboutTebleCol.innerHTML=`<nav class="nav justify-content-between " style="font-size:16px" >
+<button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " aria-current="page" >All</button>
+<button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " >Technical Education</button>
+<button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " >Higher Education</button>
+<button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " >Agriculture Education</button>
+<button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " >Fine Art Education</button>
+<button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " >Medical Education</button>
+<button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " >AYUSH</button>
+</nav>`
+
+window.onload = function (background){
+  const addwhite= document.querySelector(".a_about_btn")
+//   addwhite.classList.remove("bg-primary")
+  addwhite.classList.add("bg-danger")
+  addwhite.classList.add("bg-warning")
+}
+
+
+document.addEventListener("click", function (event){
+    const btn= event.target.classList.contains("a_about_btn")
+    if(btn){
+        const existingBtn = document.querySelectorAll(".a_about_btn")
+        existingBtn.forEach((e) =>{
+            e.classList.add("bg-white")
+            const exist =e.classList.contains("bg-warning")
+            if(exist){
+                event.target.classList.add("bg-white")
+                e.classList.remove("bg-warning")
+            }  
+        })
+        event.target.classList.remove("bg-white")
+        event.target.classList.add("bg-warning")
+    }
+})
+
+
+aboutTebleRow.appendChild(aboutTebleCol)
+aboutTeble.appendChild(aboutTebleRow)
+aboutTavleBox.appendChild(aboutTeble)
+main.appendChild(about)
 
 
 const Script = document.createElement("script")
