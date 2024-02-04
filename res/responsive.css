@@ -62,6 +62,13 @@
         font-size: 8px !important;
         line-height: 15px !important;
     }
-    
+    .nav{
+        justify-content: space-evenly !important;
+    }
+    .a_about_btn{
+        font-size: 8px !important;
+        margin-top: 7px !important;
+        padding:2px 10px !important;
+    }
     
 }
