@@ -565,7 +565,7 @@ aboutRow.appendChild(aboutCol)
 // ceraet abouttable
 const aboutTavleBox=document.createElement("div")
 aboutTavleBox.style.background="#E7E7E7"
-aboutTavleBox.style.height="400px"
+aboutTavleBox.style.height=""
 // aboutTavleBox.style.opacity="0.87"
 aboutDiv.appendChild(aboutTavleBox)
 
@@ -591,17 +591,115 @@ aboutTebleCol.innerHTML=`<nav class="nav justify-content-between " style="font-s
 <button style="color:#163269; background-color: #FCFCFC;padding:7px 30px;" type="button" class=" border-0 a_about_btn " >AYUSH</button>
 </nav>`
 
-window.onload = function (background){
+window.onload = function (){
   const addwhite= document.querySelector(".a_about_btn")
 //   addwhite.classList.remove("bg-primary")
   addwhite.classList.add("bg-danger")
   addwhite.classList.add("bg-warning")
+ // dynamicbody data
+ dynamicData([
+    {
+        id: 1,
+        course: "LLB 3 Yrs",
+        subject: "Important Notice for Preparatory Passed Candidates.",
+        isNew: true,
+        date: "06/02/2024",
+        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Important-Notices_Preperatory-CET-2024.pdf"
+    },
+    {
+        id: 2,
+        course: "All CET's",
+        subject: "User Manual Video for CET Registration A.Y. 2024-25",
+        isNew: true,
+        date: "02/02/2024",
+        download: "https://www.youtube.com/watch?v=UuJSWbIoyGQ"
+    },
+    {
+        id: 3,
+        course: "MAH- AAC (Fine Art)",
+        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+        isNew: true,
+        date: "	02/02/2024",
+        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+    },
+    {
+        id: 4,
+        course: "All CET's",
+        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+        isNew: true,
+        date: "29/01/2024",
+        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+    },
+    {
+        id: 5,
+        course: "MAH- AAC (Fine Art)",
+        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+        isNew: true,
+        date: "31/01/2024",
+        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+    },
+    {
+        id: 6,
+        course: "All CET's",
+        subject: "	Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 29-01-2024",
+        isNew: true,
+        date: "30/01/2024",
+        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+    }
+])
 }
+// 
 
+// dynamicbosy function
+function dynamicData(tbodyDatatd = []) {
+
+tbodyDatatd.forEach(function (data) {   
+//  create tablebody tr
+const tableBodyTr=document.createElement("tr")
+
+    // creaet bodyTd
+var bodyData1=document.createElement('td')
+bodyData1.innerText= data.id
+tableBodyTr.appendChild(bodyData1)
+
+var bodyData2=document.createElement('td')
+bodyData2.innerText= data.course
+tableBodyTr.appendChild(bodyData2)
+
+var bodyData3=document.createElement('td')
+bodyData3.innerText= data.subject
+tableBodyTr.appendChild(bodyData3)
+ //create new img
+ const newImg = document.createElement("img")
+ newImg.src = "../img/blinknew.gif"
+ newImg.alt = "new"
+ if (data.isNew) {
+    bodyData3.appendChild(newImg)
+ }
+
+var bodyData4=document.createElement('td')
+bodyData4.innerText= data.date
+tableBodyTr.appendChild(bodyData4)
+
+var bodyData5=document.createElement('td')
+bodyData5.innerText= data.download
+bodyData5.style.textAlign = "center"
+bodyData5.style.cursor = "pointer"
+const openLink = `<a href="${data.download}" target="_blank]"><i class="fa fa-file-pdf-o fw-bold text-dark" aria-hidden="true"></i></a>`
+bodyData5.innerHTML = openLink
+tableBodyTr.appendChild(bodyData5)
+tablebody.appendChild(tableBodyTr)
+
+})
+
+}
 
 document.addEventListener("click", function (event){
     const btn= event.target.classList.contains("a_about_btn")
     if(btn){
+
+        const title = event.target.innerText
+
         const existingBtn = document.querySelectorAll(".a_about_btn")
         existingBtn.forEach((e) =>{
             e.classList.add("bg-white")
@@ -613,13 +711,415 @@ document.addEventListener("click", function (event){
         })
         event.target.classList.remove("bg-white")
         event.target.classList.add("bg-warning")
+        tablebody.innerHTML = ""
+
+
+        // dynamicbody row
+        switch (title) {
+            case "Technical Education":
+                return dynamicData([
+                    {
+                        id: 1,
+                        course: "All CET’s",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+                        isNew: true,
+                        date: "06/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 2,
+                        course: "All CET’s",
+                        subject: "	User Manual Video for CET Registration A.Y. 2024-25",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 3,
+                        course: "All CET’s",
+                        subject: "	Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 29-01-2024",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+                    },
+                    {
+                        id: 4,
+                        course: "All CET’s",
+                        subject: "	As per the new rules for A.Y. 2024-25, the fee structure for CET Registrations for Transgender and Orphan candidates will be the same as that for the Reserved category.",
+                        isNew: true,
+                        date: "11/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 5,
+                        course: "All CET’s",
+                        subject: "	Activity Schedule for all CET Registration for A.Y. 2024-25",
+                        isNew: true,
+                        date: "11/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 6,
+                        course: "	MHT CET, MBA/MMS, MCA, M.Arch, M.HMCT, B.HMCT, B.Design",
+                        subject: "Click Here To View Syllabus of All Courses Under Technical Education A.Y. 2024-25",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "	Updated Tentative Schedule for All Common Entrance Tests A.Y. 2024-25"
+                    },
+                ])
+            case "Higher Education":
+                return dynamicData([
+                    {
+                        id: 1,
+                        course: "All CET's",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 2,
+                        course: "All CET's",
+                        subject: "User Manual Video for CET Registration A.Y. 2024-25",
+                        isNew: true,
+                        date: "02/02/2024",
+                        download: "https://www.youtube.com/watch?v=UuJSWbIoyGQ"
+                    },
+                    {
+                        id: 3,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+                        isNew: true,
+                        date: "	02/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 4,
+                        course: "All CET's",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 5,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 6,
+                        course: "All CET's",
+                        subject: "	Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 29-01-2024",
+                        isNew: true,
+                        date: "30/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+                    }
+                ])
+            case "Agriculture Education":
+                return dynamicData([
+                    {
+                        id: 1,
+                        course: "All CET’s",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 06-02-2024",
+                        isNew: true,
+                        date: "06/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                     {
+                        id: 2,
+                        course: "All CET's",
+                        subject: "User Manual Video for CET Registration A.Y. 2024-25",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://www.youtube.com/watch?v=UuJSWbIoyGQ"
+                    },
+                    {
+                        id: 3,
+                        course: "All CET’s",
+                        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+                        isNew: true,
+                        date: "	02/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 4,
+                        course: "All CET's",
+                        subject: "	As per the new rules for A.Y. 2024-25, the fee structure for CET Registrations for Transgender and Orphan candidates will be the same as that for the Reserved category.",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 5,
+                        course: "All CET’s",
+                        subject: "	Activity Schedule for all CET Registration for A.Y. 2024-25",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 6,
+                        course: "All CET's",
+                        subject: "		Updated Tentative Schedule for All Common Entrance Tests A.Y. 2024-25",
+                        isNew: true,
+                        date: "30/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+                    }
+                ])
+            case "Fine Art Education":
+                return dynamicData([
+                    {
+                        id: 1 ,
+                        course: "All CET's",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 2,
+                        course: "All CET's",
+                        subject: "User Manual Video for CET Registration A.Y. 2024-25",
+                        isNew: true,
+                        date: "02/02/2024",
+                        download: "https://www.youtube.com/watch?v=UuJSWbIoyGQ"
+                    },
+                    {
+                        id: 3,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+                        isNew: true,
+                        date: "	02/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 4,
+                        course: "All CET's",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 29-01-2024",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 5,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "As per the new rules for A.Y. 2024-25, the fee structure for CET Registrations for Transgender and Orphan candidates will be the same as that for the Reserved category.",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 6,
+                        course: "All CET's",
+                        subject: "	Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 29-01-2024",
+                        isNew: true,
+                        date: "30/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+                    }
+                    
+                ])
+            case "Medical Education":
+                return dynamicData([
+                    {
+                        id: 1,
+                        course: "All CET's",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 2,
+                        course: "All CET's",
+                        subject: "User Manual Video for CET Registration A.Y. 2024-25",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://www.youtube.com/watch?v=UuJSWbIoyGQ"
+                    },
+                    {
+                        id: 3,
+                        course: "All CET’s",
+                        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+                        isNew: true,
+                        date: "	02/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 4,
+                        course: "All CET's",
+                        subject: "	As per the new rules for A.Y. 2024-25, the fee structure for CET Registrations for Transgender and Orphan candidates will be the same as that for the Reserved category.",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 5,
+                        course: "All CET’s",
+                        subject: "	Activity Schedule for all CET Registration for A.Y. 2024-25",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 6,
+                        course: "All CET's",
+                        subject: "		Updated Tentative Schedule for All Common Entrance Tests A.Y. 2024-25",
+                        isNew: true,
+                        date: "30/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+                    }
+                ])
+            case "AYUSH":
+                return dynamicData([
+                    {
+                        id: 1,
+                        course: "All CET's",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 2,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "User Manual Video for CET Registration A.Y. 2024-25",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://www.youtube.com/watch?v=UuJSWbIoyGQ"
+                    },
+                    {
+                        id: 3,
+                        course: "All CET’s",
+                        subject: "	Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 29-01-2024",
+                        isNew: true,
+                        date: "	02/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 4,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "	As per the new rules for A.Y. 2024-25, the fee structure for CET Registrations for Transgender and Orphan candidates will be the same as that for the Reserved category.",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 5,
+                        course: "All CET’s",
+                        subject: "	Activity Schedule for all CET Registration for A.Y. 2024-25",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 6,
+                        course: "All CET's",
+                        subject: "		Updated Tentative Schedule for All Common Entrance Tests A.Y. 2024-25",
+                        isNew: true,
+                        date: "30/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+                    }
+                ])
+            default:
+                return dynamicData([
+                    {
+                        id: 1,
+                        course: "LLB 3 Yrs",
+                        subject: "Important Notice for Preparatory Passed Candidates.",
+                        isNew: true,
+                        date: "06/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Important-Notices_Preperatory-CET-2024.pdf"
+                    },
+                    {
+                        id: 2,
+                        course: "All CET's",
+                        subject: "User Manual Video for CET Registration A.Y. 2024-25",
+                        isNew: true,
+                        date: "02/02/2024",
+                        download: "https://www.youtube.com/watch?v=UuJSWbIoyGQ"
+                    },
+                    {
+                        id: 3,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+                        isNew: true,
+                        date: "	02/02/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 4,
+                        course: "All CET's",
+                        subject: "Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi)",
+                        isNew: true,
+                        date: "29/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice.pdf"
+                    },
+                    {
+                        id: 5,
+                        course: "MAH- AAC (Fine Art)",
+                        subject: "MAH- AAC (Fine Art) CET 2024 Online Application Notice No.1 (English/Marathi)",
+                        isNew: true,
+                        date: "31/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Online-Application-Notice.pdf"
+                    },
+                    {
+                        id: 6,
+                        course: "All CET's",
+                        subject: "	Imp Notice: Dates have been Extended for various courses of CET registration for A.Y 2024-25 (English/Marathi) Dated 29-01-2024",
+                        isNew: true,
+                        date: "30/01/2024",
+                        download: "https://cetcell.mahacet.org/wp-content/uploads/2023/12/Extenstion-Notice-1.pdf"
+                    }
+                ])
+        }
+        
     }
 })
 
-
 aboutTebleRow.appendChild(aboutTebleCol)
 aboutTeble.appendChild(aboutTebleRow)
+
+// creaet dynamic table
+const dynamicTable=document.createElement("table")
+dynamicTable.className=" py-5 mt-3   mx-auto  table-bordered border-white border-end"
+dynamicTable.style.width="90% "
+aboutTebleRow.appendChild(dynamicTable)
+
+// creat head
+const tableHead=document.createElement("thead")
+dynamicTable.appendChild(tableHead)
+
+// create headtr
+const headTr=document.createElement("tr")
+headTr.className=""
+tableHead.appendChild(headTr)
+
+
+const tableHeadData = [{ title: "SN", width: 20 }, { title: "Course Name", width: 200 }, { title: "Subject", width: 500 }, { title: "Published Date", width: 150 }, { title: "Download", width: 50 }]
+
+tableHeadData.forEach(function (th) {
+    const headTh = document.createElement("th")
+    headTh.className = "bg-warning pb-4"
+    if (th.title === "SN") {
+        headTh.style.textAlign = "center"
+    }
+    headTh.innerText = th.title
+    headTh.style.width = `${th.width}px`
+    headTh.style.fontWeight = "400"
+    dynamicTable.style.borderRight=`${th.bor}`
+    headTr.appendChild(headTh)
+})
+
+// creaet tablebody
+const tablebody=document.createElement("tbody")
+tablebody.className=""
+dynamicTable.appendChild(tablebody)
+
 aboutTavleBox.appendChild(aboutTeble)
+
 main.appendChild(about)
 
 
