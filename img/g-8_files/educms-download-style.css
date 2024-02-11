@@ -1,0 +1,70 @@
+
+.educms-download-main-marquee {
+    border: 1px solid #666666;
+    overflow: hidden;
+    width: 100%;
+}
+.Announcements-Title {
+	position: relative;
+    background: #0858a7;
+    margin: 0;
+    padding: 7px;
+    z-index: 999;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+}
+.Announcements-Title-verticle {
+    position: relative;
+    display: flex;
+    background: #0858a7;
+    padding: 10px 5px;
+    z-index: 999;
+    color: white;
+}
+.Announcements-Title-verticle h3 {
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+    margin: 0;
+    padding-right: 8px;
+}
+.educms-download-content-items-verticle li {
+    list-style: none;
+}
+.educms-download-content-items-horizontal {
+	display: inline-flex;
+    margin: 0;
+    width: 100%;
+    white-space: nowrap !important;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+.educms-download-content-items-horizontal li {
+	list-style: none;
+    padding: 0px 10px;
+}
+ul.educms-download-content-items-horizontal li {
+    display: inline-flex;
+    padding: 6px 0px;
+}
+
+.marquee-sibling {
+    background: #0858a7;
+    padding: 6px;
+    color: white;
+    font-weight: 500;
+    z-index: 999;
+    display: flex;
+}
+.educms-download-content-items-verticle {
+    height: 250px;
+}
+
+.bordr-content {
+    border-left: solid 1px black;
+    content: "";
+    margin: 0px 15px;
+}

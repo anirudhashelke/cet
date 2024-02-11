@@ -1,0 +1,198 @@
+.head {
+  font-family: "open sans";
+  font-size: 16px;
+  font-weight: 600;
+  padding: 1%;
+  background-color: white;
+  border-bottom: 1px solid #dacccc!important;
+}
+.fa fa-eye{
+	background-color:#ecebfc!important;
+}
+.formr {
+  /* margin: auto; */
+  width: 80%;
+  margin: 3%;
+/*   box-shadow:0.5px rgb(22 50 105); */
+	box-shadow:0px 1px 5px 1px rgb(22 50 105 / 50%);
+  padding: 6%;
+}
+.rowmx{
+  width:90%;
+  margin:auto;
+}
+.box {
+  padding: 2%;
+  background: white;
+  border: 1px solid grey;
+  width: 90%;
+}
+.submitbtn {
+  font-family: "open sans";
+  font-size: 14px;
+  /* font-weight: 600; */
+  padding: 7px 21px;
+  background: #163269;
+  border-radius: 5px !important;
+  color: white;
+  margin-top:3%;
+}
+.
+#overlay {
+  background: #ffffff;
+  color: #666666;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  float: left;
+  text-align: center;
+  padding-top: 25%;
+  opacity: .80;
+}
+button {
+  margin: 40px;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+.spinner {
+    margin: 0 auto;
+    height: 64px;
+    width: 64px;
+    animation: rotate 0.8s infinite linear;
+    border: 5px solid firebrick;
+    border-right-color: transparent;
+    border-radius: 50%;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+ 
+.ChartFilters {
+  display: flex;
+  justify-content: space-between;
+}  
+  .horizontalform{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width: 80%;
+  padding:40px;
+  }
+  .coursestat{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  width: 100%;
+  }
+  .form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+  .submitbtn{
+  margin-left: 60px;
+  padding: 10 30px 10px 30px;
+  }
+ 
+  .coursestat table th{
+     background-color: #eec641;
+  }
+select.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 2px);
+    border: 1px solid #dacccc;
+}
+/*CSS for pie chart*/
+  #chart-container, #PieChartForCET {
+    width: 100%;
+    height: auto;
+  }
+  .card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+ 
+.card-body {
+-webkit-box-flex: 1;
+-ms-flex: 1 1 auto;
+flex: 1 1 auto;
+padding: 1.25rem;
+}
+/*END CSS for pie chart*/
+@media only screen and (max-width: 600px) {
+  .table-striped {
+  overflow-x:scroll!important;
+  }
+}
+.CetResults{
+  padding:5%;
+  margin-top: 2%;
+}
+  .CetResults th, .CetResults td {
+        padding: 5px!important;
+        border: 1px solid #dddddd;
+        text-align: center;
+	  font-size:14px;
+    }
+.column-sr-no {
+        width: 5%;
+    }
+.column-more-info {
+        width: 10%;
+    }
+.column-college-code {
+        width: 15%;
+    }
+.column-college-name {
+        width: 15%;
+    }
+.column-course-type {
+        width: 10%;
+    }
+.column-course-name {
+        width: 15%;
+    }
+.column-address {
+        width: 15%;
+    }
+.column-status {
+        width: 10%;
+    }
+.column-district {
+        width: 5%;
+    }
+
+@media only screen and (max-width: 600px) {
+        .CetResults th, .CetResults td {
+            padding: 4px;
+            font-size: 12px;
+        }
+    }
+ 
+.Cetinfo td{
+	text-align: left;
+  	padding: 16px;
+	font-family: sans-serif;
+  	font-size:10px;
+ 
+}

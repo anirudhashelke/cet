@@ -1,0 +1,27 @@
+
+//play pause button marquee
+/*jQuery(function(){
+    jQuery(".h-pausemarquee").click(function(){
+        jQuery(".horizantal-animateState").css("animationPlayState", "paused");
+            jQuery(".h-pausemarquee").css("display", "none");
+                jQuery(".h-playmarquee").css("display", "block");
+    });
+    jQuery(".h-playmarquee").click(function(){
+        jQuery(".js-marquee-wrapper").css("animationPlayState", "running");
+        jQuery(".h-playmarquee").css("display", "none");
+        jQuery(".h-pausemarquee").css("display", "block");
+    });
+});*/
+//play pause button marquee verticle
+/*jQuery(function(){
+    jQuery(".v-pausemarquee-2").click(function(){
+        jQuery(".verticle-animateState-2").css("animationPlayState", "paused");
+            jQuery(".v-pausemarquee-2").css("display", "none");
+                jQuery(".v-playmarquee-2").css("display", "block");
+    });
+    jQuery(".v-playmarquee-2").click(function(){
+        jQuery(".verticle-animateState-2").css("animationPlayState", "running");
+        jQuery(".v-playmarquee-2").css("display", "none");
+        jQuery(".v-pausemarquee-2").css("display", "block");
+    });
+});*/

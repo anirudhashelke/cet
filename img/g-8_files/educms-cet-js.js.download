@@ -1,0 +1,465 @@
+jQuery(document).ready(function() {
+    jQuery("#CETDepartementName").change(function(){
+        var CETDepartementName = jQuery(this).val();
+        jQuery.ajax({
+        type: 'POST',
+        url: cetAllsubmitShow.ajaxurl,
+        data: {"action": "CETDepartementName_results", "CETDepartementName":CETDepartementName},
+        success: function(data) {
+            console.log(data);
+                jQuery("#CourseName").empty();
+               //jQuery("#CourseName").append('<option value=0>All</option>');
+               //jQuery.each(function(index, element) {
+                //console.log(element);
+                    //jQuery("#CourseName").append('<option value='+element.MainCourseID+'>'+element.MainCourseName+'</option>');
+                    jQuery("#CourseName").html(data);
+
+                    //});
+},
+error: function(error) {
+console.log("FAIL....=================");
+}
+});
+});
+    jQuery("#CETCourseType").change(function(){
+        var CETCourseType = jQuery(this).val();
+        jQuery.ajax({
+        type: 'POST',
+        url: cetAllsubmitShow.ajaxurl,
+        data: {"action": "CETCourseType_results", "CETCourseType":CETCourseType},
+        success: function(data) {
+            console.log(data);
+                jQuery("#CourseName").empty();
+               //jQuery("#CourseName").append('<option value=0>All</option>');
+               //jQuery.each(function(index, element) {
+                //console.log(element);
+                    //jQuery("#CourseName").append('<option value='+element.MainCourseID+'>'+element.MainCourseName+'</option>');
+                    jQuery("#CourseName").html(data);
+
+                    //});
+},
+error: function(error) {
+console.log("FAIL....=================");
+}
+});
+});
+jQuery("#CourseName").change(function(){
+    var CourseName = jQuery(this).val();
+    jQuery.ajax({
+    type: 'POST',
+    url: cetAllsubmitShow.ajaxurl,
+    data: {"action": "cetCourseName_results", "CourseName":CourseName},
+    success: function(data) {
+        console.log(data);
+            jQuery("#SubCourseName").empty();
+           //jQuery("#CourseName").append('<option value=0>All</option>');
+           //jQuery.each(function(index, element) {
+            //console.log(element);
+                //jQuery("#CourseName").append('<option value='+element.MainCourseID+'>'+element.MainCourseName+'</option>');
+                jQuery("#SubCourseName").html(data);
+
+                //});
+},
+error: function(error) {
+console.log("FAIL....=================");
+}
+});
+});
+//search institute results ajax start here
+
+jQuery("#SearchResultsShow").hide(); 
+jQuery("#submitbtnresults").click(function(){
+    var CETDepartementName = jQuery('#CETDepartementName').val();
+    var CETCourseType       = jQuery('#CETCourseType').val();
+    var CourseName          = jQuery('#CourseName').val();
+    var SubCourseName       = jQuery('#SubCourseName').val();
+    var nstituteStatus1     = jQuery('#nstituteStatus1').val();
+    var AutonomyStatus      = jQuery('#AutonomyStatus').val();
+    var MinorityStatus      = jQuery('#MinorityStatus').val();
+
+    jQuery.ajax({
+    type: 'POST',
+    url: cetAllsubmitShow.ajaxurl,
+    data: {"action": "CETInstitute_Results_Query", "CETDepartementName":CETDepartementName, "CETCourseType":CETCourseType, "CourseName":CourseName, "SubCourseName":SubCourseName, "nstituteStatus1":nstituteStatus1, "AutonomyStatus":AutonomyStatus, "MinorityStatus":MinorityStatus},
+    beforeSend: function() {
+        jQuery("#overlay").fadeIn(100);
+    },
+        success: function(data){
+        setTimeout(function(){
+            jQuery("#overlay").fadeOut(300);
+          },500);
+        jQuery("#SearchResultsShow").show(); 
+        jQuery("#SearchResultsShow").html(data);
+        }
+});
+});
+
+});
+
+//add cet statistics cap query here
+jQuery.noConflict();
+jQuery(document).ready(function(){
+	jQuery("#AddCAP").click(function(){
+		var AcadmicYear                     = jQuery("#AcadmicYear").val();
+		var DepartmentName                  = jQuery("#DepartmentName").val();
+		var CourseType                      = jQuery("#CourseType").val();
+        var CourseName                      = jQuery("#CourseName").val();
+		var NoofCandidatesRegisterForCAP    = jQuery("#NoofCandidatesRegisterForCAP").val();
+		var NoofInstitutes                  = jQuery("#NoofInstitutes").val();
+		var TotalIntake                     = jQuery("#TotalIntake").val();
+		var TotalAdmitted                   = jQuery("#TotalAdmitted").val();
+		var Vacancy                         = jQuery("#Vacancy").val();
+        
+		jQuery.ajax({
+		type: 'POST', // Adding Post method
+		url: cetAllsubmitShow.ajaxurl, // Including ajax file
+		data: {"action": "Add_CAP_Statistics_Query", "AcadmicYear":AcadmicYear, "DepartmentName":DepartmentName, "CourseType":CourseType, "CourseName":CourseName, "NoofCandidatesRegisterForCAP":NoofCandidatesRegisterForCAP, "NoofInstitutes":NoofInstitutes, "TotalIntake":TotalIntake, "TotalAdmitted":TotalAdmitted, "Vacancy":Vacancy}, // Sending data dname to post_word_count function.
+	success: function(data){ // Show returned data using the function.
+		jQuery("#success1").show();
+		jQuery('#success1').html('CAP added successfully !');
+		jQuery("#AddStatisticsCap").trigger("reset");
+		jQuery('#success1').delay(3000).fadeOut('slow');
+		//console.log(awards);
+		}
+	});
+	});
+});
+//end // add cet statistics cap query here
+
+//Update cet statistics cap query here
+jQuery.noConflict();
+jQuery(document).ready(function(){
+	jQuery("#EditCAP").click(function(){
+        var capedit                         = jQuery("#capedit").val();
+		var AcadmicYear                     = jQuery("#AcadmicYear").val();
+		var DepartmentName                  = jQuery("#DepartmentName").val();
+		var CourseType                      = jQuery("#CourseType").val();
+        var CourseName                      = jQuery("#CourseName").val();
+		var NoofCandidatesRegisterForCAP    = jQuery("#NoofCandidatesRegisterForCAP").val();
+		var NoofInstitutes                  = jQuery("#NoofInstitutes").val();
+		var TotalIntake                     = jQuery("#TotalIntake").val();
+		var TotalAdmitted                   = jQuery("#TotalAdmitted").val();
+		var Vacancy                         = jQuery("#Vacancy").val();
+        
+		jQuery.ajax({
+		type: 'POST', // Adding Post method
+		url: cetAllsubmitShow.ajaxurl, // Including ajax file
+		data: {"action": "Update_CAP_Statistics_Query", "capedit":capedit, "AcadmicYear":AcadmicYear, "DepartmentName":DepartmentName, "CourseType":CourseType, "CourseName":CourseName, "NoofCandidatesRegisterForCAP":NoofCandidatesRegisterForCAP, "NoofInstitutes":NoofInstitutes, "TotalIntake":TotalIntake, "TotalAdmitted":TotalAdmitted, "Vacancy":Vacancy}, // Sending data dname to post_word_count function.
+	success: function(data){ // Show returned data using the function.
+		jQuery("#success2").show();
+		jQuery('#success2').html('CAP Updated successfully !');
+		jQuery('#success2').delay(3000).fadeOut('slow');
+		//console.log(awards);
+		}
+	});
+	});
+});
+//end // Update cet statistics cap query here
+
+//delete cet statistics cap query Start here
+function DeleteCAP(DeleteCapID){
+    var DeleteCapID = DeleteCapID;
+    var DeleteConfirmSMS = "Are you sure to delete this item?";
+    if (confirm(DeleteConfirmSMS) == true) {
+    //console.log(delid);
+    jQuery.ajax({
+    type: 'POST', // Adding Post method
+    url: cetAllsubmitShow.ajaxurl, // Including ajax file
+    data: {"action": "Delete_CAP_Statistics_Query", "DeleteCapID":DeleteCapID}, // Sending data dname to post_word_count function.
+        success: function(data){ // Show returned data using the function.
+            //confirm('Are you sure to delete this item?');
+            alert('CAP Deleted Successfully...!');
+            location.reload();
+            //console.log(delid);
+            }
+    });
+    }
+    else {
+        alert('You Are canceled ...!');
+      }
+}
+//delete cet statistics cap query here end
+
+
+jQuery(document).ready(function() {
+    // Statistics CAP On change filter start here for academic year when selected departments
+    /*jQuery("#SelectDept").change(function(){
+        var SelectDept = jQuery(this).val();
+        jQuery.ajax({
+        type: 'POST',
+        url: cetAllsubmitShow.ajaxurl,
+        data: {"action": "On_Change_CAP_Statistics_Query", "SelectDept":SelectDept},
+        success: function(data) {
+            console.log(data);
+                jQuery("#SelectAcadmyYear").empty();
+                jQuery("#SelectAcadmyYear").html(data);
+        },
+    error: function(error) {
+    console.log("FAIL....=================");
+    }
+    });
+    });*/
+    // END Statistics CAP On change filter here for academic year when selected departments
+
+    //Statistics CAP// Fetch tables rows data year when selected departments
+    jQuery("#SelectDept").change(function(){
+        var DepartmentID = jQuery(this).val();
+        jQuery.ajax({
+        type: 'POST',
+        url: cetAllsubmitShow.ajaxurl,
+        data: {"action": "On_Change_Fetch_Tables_Data", "DepartmentID":DepartmentID},
+        success: function(data) {
+            console.log(data);
+                jQuery("#FetchTablesRows").empty();
+                jQuery("#SelectAcadmyYear").val(0); //reset academic dropdown (if already selected) when select department
+                jQuery("#FetchTablesRows").html(data);
+        },
+    error: function(error) {
+    console.log("FAIL....=================");
+    }
+    });
+    });
+    //END//Statistics CAP// Fetch tables rows data year when selected departments
+
+     //Statistics CAP// Fetch tables rows data year when selected Academic Year
+     jQuery("#SelectAcadmyYear").change(function(){
+        var DepartmentID = jQuery('#SelectDept').val();
+        var AcadmicYear = jQuery('#SelectAcadmyYear').val();
+        jQuery.ajax({
+        type: 'POST',
+        url: cetAllsubmitShow.ajaxurl,
+        data: {"action": "On_Change_Fetch_Tables_Data", "DepartmentID":DepartmentID, "AcadmicYear":AcadmicYear},
+        success: function(data) {
+            console.log(data);
+                jQuery("#FetchTablesRows").empty();
+                jQuery("#FetchTablesRows").html(data);
+        },
+    error: function(error) {
+    console.log("FAIL....=================");
+    }
+    });
+    });
+    //END//Statistics CAP// Fetch tables rows data year when selected Academic Year
+
+});
+
+//This block for statistic CET
+jQuery.noConflict();
+jQuery(document).ready(function(){
+    //add cet statistics CET query here
+	jQuery("#AddCET").click(function(){
+		var AcadmicYear                     = jQuery("#AcadmicYear").val();
+		var DepartmentName                  = jQuery("#DepartmentName").val();
+		var CourseType                      = jQuery("#CourseType").val();
+        var CourseName                      = jQuery("#CourseName").val();
+		var CandidatesRegisterCET           = jQuery("#CandidatesRegisterCET").val();
+		var NoofCandidateAppearedforCET     = jQuery("#NoofCandidateAppearedforCET").val();
+		var NoofCandidateAbsentforCET       = jQuery("#NoofCandidateAbsentforCET").val();
+        
+		jQuery.ajax({
+		type: 'POST', // Adding Post method
+		url: cetAllsubmitShow.ajaxurl, // Including ajax file
+		data: {"action": "Add_CET_Statistics_Query", "AcadmicYear":AcadmicYear, "DepartmentName":DepartmentName, "CourseType":CourseType, "CourseName":CourseName, "CandidatesRegisterCET":CandidatesRegisterCET, "NoofCandidateAppearedforCET":NoofCandidateAppearedforCET, "NoofCandidateAbsentforCET":NoofCandidateAbsentforCET}, // Sending data dname to post_word_count function.
+	success: function(data){ // Show returned data using the function.
+		jQuery("#successcet").show();
+		jQuery('#successcet').html('CET added successfully !');
+		jQuery("#AddStatisticsCET").trigger("reset");
+		jQuery('#successcet').delay(3000).fadeOut('slow');
+		//console.log(awards);
+		}
+	});
+	});
+    //end // add cet statistics cet query here
+});
+//END//This block for statistic CET
+
+jQuery.noConflict();
+jQuery(document).ready(function(){
+    //Start//Update cet statistics CET query here
+    jQuery("#EditCET").click(function(){
+        var cetedit                         = jQuery("#cetedit").val();
+		var AcadmicYear                     = jQuery("#AcadmicYear").val();
+		var DepartmentName                  = jQuery("#DepartmentName").val();
+		var CourseType                      = jQuery("#CourseType").val();
+        var CourseName                      = jQuery("#CourseName").val();
+		var CandidatesRegisterCET           = jQuery("#CandidatesRegisterCET").val();
+		var NoofCandidateAppearedforCET     = jQuery("#NoofCandidateAppearedforCET").val();
+		var NoofCandidateAbsentforCET       = jQuery("#NoofCandidateAbsentforCET").val();
+        
+		jQuery.ajax({
+		type: 'POST', // Adding Post method
+		url: cetAllsubmitShow.ajaxurl, // Including ajax file
+		data: {"action": "Update_CET_Statistics_Query", "cetedit":cetedit, "AcadmicYear":AcadmicYear, "DepartmentName":DepartmentName, "CourseType":CourseType, "CourseName":CourseName, "CandidatesRegisterCET":CandidatesRegisterCET, "NoofCandidateAppearedforCET":NoofCandidateAppearedforCET, "NoofCandidateAbsentforCET":NoofCandidateAbsentforCET}, // Sending data dname to post_word_count function.
+	success: function(data){ // Show returned data using the function.
+		jQuery("#successUpdate").show();
+		jQuery('#successUpdate').html('CAP Updated successfully !');
+		jQuery('#successUpdate').delay(3000).fadeOut('slow');
+		//console.log(awards);
+		}
+	});
+	});
+    //END//Update cet statistics cap query here
+});
+
+//delete cet statistics CET query Start here
+function DeleteCET(DeleteCETID){
+    var DeleteCETID = DeleteCETID;
+    var DeleteConfirmSMS = "Are you sure to delete this item?";
+    if (confirm(DeleteConfirmSMS) == true) {
+    //console.log(delid);
+    jQuery.ajax({
+    type: 'POST', // Adding Post method
+    url: cetAllsubmitShow.ajaxurl, // Including ajax file
+    data: {"action": "Delete_CET_Statistics_Query", "DeleteCETID":DeleteCETID}, // Sending data dname to post_word_count function.
+        success: function(data){ // Show returned data using the function.
+            //confirm('Are you sure to delete this item?');
+            alert('CET Deleted Successfully...!');
+            location.reload();
+            //console.log(delid);
+            }
+    });
+    }
+    else {
+        alert('You Are canceled ...!');
+      }
+}
+//delete cet statistics CET query here end
+
+
+jQuery(document).ready(function() {
+    //Statistics CET// Fetch tables rows data year when selected departments
+    jQuery("#SelectCetDept").change(function(){
+        var CetDepartmentID = jQuery(this).val();
+        jQuery.ajax({
+        type: 'POST',
+        url: cetAllsubmitShow.ajaxurl,
+        data: {"action": "On_Change_Statistics_CET", "CetDepartmentID":CetDepartmentID},
+        success: function(data) {
+            console.log(data);
+                jQuery("#FetchCetTablesRows").empty();
+                jQuery("#AcadmicYearCet").val(0); //reset academic dropdown (if already selected) when select department
+                jQuery("#FetchCetTablesRows").html(data);
+        },
+    error: function(error) {
+    console.log("FAIL....=================");
+    }
+    });
+    });
+    //END//Statistics CET// Fetch tables rows data year when selected departments
+
+     //Statistics CET// Fetch tables rows data year when selected Academic Year
+     jQuery("#AcadmicYearCet").change(function(){
+        var CetDepartmentID = jQuery('#SelectCetDept').val();
+        var AcadmicYearCet = jQuery('#AcadmicYearCet').val();
+        jQuery.ajax({
+        type: 'POST',
+        url: cetAllsubmitShow.ajaxurl,
+        data: {"action": "On_Change_Statistics_CET", "CetDepartmentID":CetDepartmentID, "AcadmicYearCet":AcadmicYearCet},
+        success: function(data) {
+            console.log(data);
+                jQuery("#FetchCetTablesRows").empty();
+                jQuery("#FetchCetTablesRows").html(data);
+        },
+    error: function(error) {
+    console.log("FAIL....=================");
+    }
+    });
+    });
+    //END//Statistics CET// Fetch tables rows data year when selected Academic Year
+
+});
+
+//Jquery and AJAX for Pie Chart For CAP
+jQuery(document).ready(function(){
+    jQuery.ajax({
+    url: cetAllsubmitShow.ajaxurl,
+    method: "POST",
+    data: {"action": "cet_CAP_Statistics_Pie_Shortcode"},
+    dataType: 'json',
+    async: false,
+    success: function(data){
+        console.log(data);
+        var CandidatesRegister = [];
+        var Institutes = [];
+        var Intake = [];
+        var Admitted = [];
+        var Labelstxt = ["Intake", "Admitted", "Vacancy"];
+
+        for (var i in data){
+            CandidatesRegister.push(data[i].CandidatesRegisterCAP);
+            Institutes.push(data[i].NoofInstitutes);
+            Intake.push(data[i].TotalIntake);
+            Admitted.push(data[i].TotalAdmitted);
+        }
+        var chartdata = {
+          labels: Labelstxt,
+          datasets: [{
+            label: 'No Of Institutes',
+            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+            hoverBackgroundColor: 'rgba(230, 236, 235, 0.75)',
+            hoverBorderColor: 'rgba(230, 236, 235, 0.75)',
+            data: [CandidatesRegister, Institutes, Intake, Admitted]
+
+          }]
+        };
+        var graphTarget = $("#graphCanvas");
+        var barGraph = new Chart(graphTarget, {
+          type: 'pie',
+          data: chartdata,
+
+        });
+      },
+      error: function(data) {
+        console.log(data);
+      }
+
+    });
+  });
+//END Jquery and AJAX for Pie Chart For CAP
+
+
+//Jquery and AJAX for Pie Chart For CET
+jQuery(document).ready(function(){
+    jQuery.ajax({
+    url: cetAllsubmitShow.ajaxurl,
+    method: "POST",
+    data: {"action": "cet_for_CET_Statistics_Pie_Shortcode"},
+    dataType: 'json',
+    async: false,
+    success: function(data){
+        console.log(data);
+        var CandidatesRegister = [];
+        var CandidateAppeared = [];
+        var CandidateAbsent = [];
+        var Labelstxt = ["Candidates Register", "Candidate Appeared", "Candidate Absent"];
+
+        for (var i in data){
+            CandidatesRegister.push(data[i].CandidatesRegisterCET);
+            CandidateAppeared.push(data[i].NoofCandidateAppearedforCET);
+            CandidateAbsent.push(data[i].NoofCandidateAbsentforCET);
+        }
+        var chartdataCET = {
+          labels: Labelstxt,
+          datasets: [{
+            label: 'No Of Institutes',
+            backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+            hoverBackgroundColor: 'rgba(230, 236, 235, 0.75)',
+            hoverBorderColor: 'rgba(230, 236, 235, 0.75)',
+            data: [CandidatesRegister, CandidateAppeared, CandidateAbsent]
+
+          }]
+        };
+        var graphTargetCET = $("#graphCanvasCET");
+        var barGraph = new Chart(graphTargetCET, {
+          type: 'pie',
+          data: chartdataCET,
+
+        });
+      },
+      error: function(data) {
+        console.log(data);
+      }
+
+    });
+  });
+//END Jquery and AJAX for Pie Chart For CET

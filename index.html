@@ -9,5 +9,153 @@
     <div id="root"></div>
 
     <script src="js/index.js"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script>
+      //Gallary Section
+      const gallary = document.createElement("section");
+      gallary.style.height = "600px";
+      gallary.style.background = "#163269";
+      gallary.style.marginTop="100px"
+      $(gallary).addClass("py-5");
+      $(main).append(gallary);
+    
+// creaet gallary container
+      const gallaryContainer = document.createElement("div");
+      gallaryContainer.className = "container border border-warning h-100 position-relative ";
+      gallaryContainer.style.width="78%"
+      //   sider
+      $(gallaryContainer)
+        .html(`<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row ">
+          <div class="col-12 col-lg-4 ms-auto p-5">
+            <img src="./img/g-1.jpg" class="d-block w-100" alt="...">
+            </div>
+          <div class="col-12 col-lg-4 p-5 me-auto">
+            <img src="./img/g-2.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row ">
+          <div class="col-12 col-lg-4 ms-auto p-5">
+            <img src="./img/g-3.jpg" class="d-block w-100" alt="...">
+            </div>
+          <div class="col-12 col-lg-4 p-5 me-auto">
+            <img src="./img/g-4.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row ">
+          <div class="col-12 col-lg-4 ms-auto p-5">
+            <img src="./img/g-5.jpg" class="d-block w-100" alt="...">
+            </div>
+          <div class="col-12 col-lg-4 p-5 me-auto">
+            <img src="./img/g-6.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row ">
+          <div class="col-12 col-lg-4 ms-auto p-5">
+            <img src="./img/g-7.jpg" class="d-block w-100" alt="...">
+            </div>
+          <div class="col-12 col-lg-4 p-5 me-auto">
+            <img src="./img/g-8.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>`);
+$(gallary).append(gallaryContainer);
+
+    //   create gallary h4
+      const gallaryH4 = document.createElement("h4");
+      $(gallaryH4).text("Gallery");
+      gallaryH4.style.background = "#163269";
+      gallaryH4.style.top="-22px"
+      gallaryH4.style.fontSize='30px'
+      gallaryH4.className = "text-white ";
+      $(gallaryH4).addClass("position-absolute px-4");
+      $(gallaryContainer).append(gallaryH4);
+
+    //   create add more
+      const gallaryMoreBtn= document.createElement("button")
+      $(gallaryMoreBtn).text("Load More")
+      gallaryMoreBtn.style.backgroundColor="#204590 "
+      $(gallaryMoreBtn).addClass("text-white  px-4 py-2 position-absolute ")
+      gallaryMoreBtn.style.bottom="50px"
+      gallaryMoreBtn.style.left="30px"
+      gallaryMoreBtn.style.border="1px solid #204590"
+    $(gallaryContainer).append(gallaryMoreBtn)
+      
+
+    // sider sections
+    const siderSection=document.createElement("section")
+    siderSection.style.background="url(../img/peoples.jpg)"
+    siderSection.style.backgroundPosition="50% 35%"
+    siderSection.style.backgroundSize="cover"
+    siderSection.style.height="230px"
+    $(main).append(siderSection)
+
+    // creaet subdiv
+    const siderSub=document.createElement("div")
+    siderSub.style.backgroundColor="#F9F8F8"
+    siderSub.style.opacity="0.9"
+    siderSub.style.height="100%"
+    $(siderSection).append(siderSub)
+
+    // creaet sidercontainer
+    const siderContainer=document.createElement("div")
+    $(siderContainer).addClass("container  h-100 ")
+    $(siderContainer)
+    .html(`<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active  ">
+  <div class=" d-flex mx-5 align-items-center">
+    <div><img src="./img/s-1.png" class="w-100" alt="..."> </div>
+     <div><img src="./img/s-2.png" class="w-100 " alt="..."> </div>
+     <div><img src="./img/s-3.png" class="w-100 " alt="..."> </div>
+     <div><img src="./img/s-4.png" class="w-100 " alt="..."> </div>
+     <div><img src="./img/s-5.png" class="w-100 " alt="..."> </div>
+     </div>
+    </div>
+    <div class="carousel-item ">
+        <div class=" d-flex mx-5 align-items-center">
+            <div><img src="./img/s-6.png" class="w-100" alt="..."> </div>
+     <div><img src="./img/s-7.png" class="w-100 " alt="..."> </div>
+     <div><img src="./img/s-8.png" class="w-100 " alt="..."> </div>
+     <div><img src="./img/s-9.png" class="w-100 " alt="..."> </div>
+     <div><img src="./img/s-13.png" class="w-100 " alt="..."> </div>
+    </div>
+    </div>
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-dark " aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>`);
+    $(siderSub).append(siderContainer)
+      </script>
+     <!-- <div><img src="./img/s-1.png" class="d-block w-100" alt="..."> </div>
+     <div><img src="./img/s-2.png" class="d-block w-100" alt="..."> </div>
+     <div><img src="./img/s-3.png" class="d-block w-100" alt="..."> </div>
+     <div><img src="./img/s-4.png" class="d-block w-100" alt="..."> </div>
+     <div><img src="./img/s-5.png" class="d-block w-100" alt="..."> </div> -->
 </body>
 </html>  
